@@ -1,5 +1,4 @@
 import 'package:bezlimit/screens/home/home_controler.dart';
-import 'package:bezlimit/screens/input/input_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -64,14 +63,19 @@ class HomeScreen extends StatelessWidget {
                                 height: 100,
                                 child: ScrollablePositionedList.builder(
                                     initialScrollIndex: homeController.currentIndex!,
+                                    itemScrollController: homeController.itemScrollController,
+                                    itemPositionsListener: homeController.itemPositionListener,
                                     scrollDirection: Axis.horizontal,
                                     itemCount: homeController.itemsCount,
                                     itemBuilder: (context,index){
                                       return Padding(
                                         padding: const EdgeInsets.only(right: 10),
                                         child: squircle(
-                                            color: (homeController.arguments != null && index == homeController.arguments) ? Colors.green : Colors.white,
-                                            onTap: () => Get.off(()=>const InputScreen(),arguments: {'items_count': homeController.itemsCount,'current_index': index})
+                                            color: (
+                                                homeController.result != null
+                                                && homeController.coloringElementindexes!.contains(index)
+                                            ) ? Colors.green : Colors.white,
+                                            onTap: () => homeController.selectElement(index)
                                         ),
                                       );
                                     })

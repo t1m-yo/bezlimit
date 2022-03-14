@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../home/home_screen.dart';
 
 class InputController extends GetxController {
   dynamic arguments = Get.arguments;
@@ -34,16 +33,16 @@ class InputController extends GetxController {
   }
   else if(
   int.parse(textEditingController!.text)
-      > arguments['items_count']
+      > arguments['items_count'] - 1
   ){
     Get.showSnackbar(
         GetSnackBar(
-          message: 'Значение не может быть больше ${arguments['items_count']}',
+          message: 'Значение не может быть больше ${arguments['items_count'] - 1}',
           duration: const Duration(seconds: 3),
         ));
   }
   else {
-    Get.off(()=>const HomeScreen(),arguments: int.parse(textEditingController!.text));
+    Get.back(result: int.parse(textEditingController!.text));
   }
     update();
   }
