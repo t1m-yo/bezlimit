@@ -1,4 +1,4 @@
-import 'package:bezlimit/screens/home/home_screen.dart';
+import 'package:bezlimit/pages/home/view/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const HomePage(),
     );
   }
 }

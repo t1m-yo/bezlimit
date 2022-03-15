@@ -1,4 +1,4 @@
-import 'package:bezlimit/screens/input/input_screen.dart';
+import 'package:bezlimit/pages/input/view/input.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:get/get.dart';
@@ -7,7 +7,6 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 class HomeController extends GetxController {
   dynamic result;
   Set? coloringElementIndexes;
-  int? currentIndex;
   int? itemsCount;
   double? rotate;
   ScrollController? scrollController;
@@ -19,7 +18,6 @@ class HomeController extends GetxController {
     itemsCount = 10;
     rotate = 0.0;
     coloringElementIndexes = {};
-    currentIndex = result ?? 0;
     scrollController = ScrollController();
     scrollController?.addListener(pageScrollListener);
     itemScrollController = ItemScrollController();
@@ -41,7 +39,7 @@ class HomeController extends GetxController {
   }
 
   selectElement (int currentIndex) async {
-    dynamic resultTo = await Get.to(() => const InputScreen(),arguments: {'items_count': itemsCount,'current_index': currentIndex});
+    dynamic resultTo = await Get.to(() => const InputPage(),arguments: {'items_count': itemsCount,'current_index': currentIndex});
     result = resultTo;
     if(coloringElementIndexes!.contains(result)){
       coloringElementIndexes!.remove(result);
@@ -53,4 +51,6 @@ class HomeController extends GetxController {
     }
     update();
   }
+
+  Color getRandomColor ()=> Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
 }

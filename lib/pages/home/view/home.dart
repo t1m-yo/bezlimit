@@ -1,12 +1,12 @@
-import 'package:bezlimit/screens/home/home_controler.dart';
+import 'package:bezlimit/pages/home/controllers/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,6 @@ class HomeScreen extends StatelessWidget {
                                 width: Get.width,
                                 height: 100,
                                 child: ScrollablePositionedList.builder(
-                                    initialScrollIndex: homeController.currentIndex!,
                                     itemScrollController: homeController.itemScrollController,
                                     itemPositionsListener: homeController.itemPositionListener,
                                     scrollDirection: Axis.horizontal,

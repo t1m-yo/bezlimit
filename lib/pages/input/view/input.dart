@@ -1,11 +1,11 @@
-import 'package:bezlimit/screens/input/input_controller.dart';
+import 'package:bezlimit/pages/input/controllers/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 
-class InputScreen extends StatelessWidget {
-  const InputScreen({Key? key}) : super(key: key);
+class InputPage extends StatelessWidget {
+  const InputPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class InputScreen extends StatelessWidget {
                       child: ElevatedButton(
                     onPressed: () => inputController.validator(),
                     child: const Text('Сохранить'),
-                  ))
+                  )),
                 ],
               ),
             ),
