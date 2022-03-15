@@ -22,17 +22,6 @@ class InputController extends GetxController {
   }
   else if(
   int.parse(textEditingController!.text)
-      < 0
-  ){
-    Get.showSnackbar(
-        const GetSnackBar(
-          message: 'Значение не может быть меньше 0',
-          duration: Duration(seconds: 3),
-
-        ));
-  }
-  else if(
-  int.parse(textEditingController!.text)
       > arguments['items_count'] - 1
   ){
     Get.showSnackbar(
