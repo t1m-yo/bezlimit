@@ -5,15 +5,14 @@ import 'package:get/get.dart';
 
 
 class InputPage extends StatelessWidget {
-  const InputPage({Key? key}) : super(key: key);
+  InputPage({Key? key}) : super(key: key);
+
+  final InputController inputController = Get.put(InputController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<InputController>(
-        init: InputController(),
-        builder: (inputController){
-          return Container(
+      body: Container(
             width: Get.width,
             height: Get.height,
             padding: const EdgeInsets.all(8),
@@ -38,9 +37,7 @@ class InputPage extends StatelessWidget {
                   )),
                 ],
               ),
-            ),
-          );
-        },
+            )
       ),
     );
   }

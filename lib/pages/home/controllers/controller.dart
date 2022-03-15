@@ -39,7 +39,7 @@ class HomeController extends GetxController {
   }
 
   selectElement (int currentIndex) async {
-    dynamic resultTo = await Get.to(() => const InputPage(),arguments: {'items_count': itemsCount,'current_index': currentIndex});
+    dynamic resultTo = await Get.to(() => InputPage(),arguments: {'items_count': itemsCount,'current_index': currentIndex});
     result = resultTo;
     if(coloringElementIndexes!.contains(result)){
       coloringElementIndexes!.remove(result);
@@ -51,6 +51,4 @@ class HomeController extends GetxController {
     }
     update();
   }
-
-  Color getRandomColor ()=> Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
 }
