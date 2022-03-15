@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                                         child: squircle(
                                             color: (
                                                 homeController.result != null
-                                                && homeController.coloringElementindexes!.contains(index)
+                                                && homeController.coloringElementIndexes!.contains(index)
                                             ) ? Colors.green : Colors.white,
                                             onTap: () => homeController.selectElement(index)
                                         ),

@@ -6,7 +6,7 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class HomeController extends GetxController {
   dynamic result;
-  Set? coloringElementindexes;
+  Set? coloringElementIndexes;
   int? currentIndex;
   int itemsCount = 10;
   double rotate = 0.0;
@@ -16,7 +16,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    coloringElementindexes = {};
+    coloringElementIndexes = {};
     currentIndex = result ?? 0;
     scrollController = ScrollController();
     scrollController?.addListener(pageScrollListener);
@@ -25,7 +25,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  void pageScrollListener() {
+  pageScrollListener() {
     rotate = math.pi * -(scrollController!.position.pixels * 0.01);
     if(scrollController!.position.pixels >= 299.0) {
       Get.showSnackbar(
@@ -38,12 +38,10 @@ class HomeController extends GetxController {
     update();
   }
 
- // Color getRandomColor ()=> Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
-
   selectElement (int currentIndex) async {
     dynamic resultTo = await Get.to(() => const InputScreen(),arguments: {'items_count': itemsCount,'current_index': currentIndex});
     result = resultTo;
-    coloringElementindexes?.add(result);
+    coloringElementIndexes?.add(result);
     itemScrollController?.jumpTo(index: result);
     update();
   }
