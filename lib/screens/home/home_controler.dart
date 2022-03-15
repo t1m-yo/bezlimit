@@ -43,8 +43,14 @@ class HomeController extends GetxController {
   selectElement (int currentIndex) async {
     dynamic resultTo = await Get.to(() => const InputScreen(),arguments: {'items_count': itemsCount,'current_index': currentIndex});
     result = resultTo;
-    coloringElementIndexes?.add(result);
-    itemScrollController?.jumpTo(index: result);
+    if(coloringElementIndexes!.contains(result)){
+      coloringElementIndexes!.remove(result);
+      itemScrollController!.jumpTo(index: result);
+    }
+    else{
+      coloringElementIndexes!.add(result);
+      itemScrollController!.jumpTo(index: result);
+    }
     update();
   }
 }

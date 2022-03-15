@@ -75,7 +75,8 @@ class HomeScreen extends StatelessWidget {
                                                 homeController.result != null
                                                 && homeController.coloringElementIndexes!.contains(index)
                                             ) ? Colors.green : Colors.white,
-                                            onTap: () => homeController.selectElement(index)
+                                            onTap: () => homeController.selectElement(index),
+                                          currentIndex: index
                                         ),
                                       );
                                     })
@@ -122,16 +123,19 @@ class HomeScreen extends StatelessWidget {
   Widget squircle({
     required VoidCallback onTap,
     required Color color,
+    required int currentIndex
   }){
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        alignment: Alignment.center,
         width: 100,
         decoration: BoxDecoration(
           color: color,
           border: Border.all(color: Colors.black,width: 0.4),
           borderRadius: BorderRadius.circular(15)
         ),
+        child: Text(currentIndex.toString(),style: const TextStyle(fontSize: 20),),
       ),
     );
   }
