@@ -26,7 +26,7 @@ class InputController extends GetxController {
   ){
     Get.showSnackbar(
         const GetSnackBar(
-          message: 'Значение не может быть меньше 1',
+          message: 'Значение не может быть меньше 0',
           duration: Duration(seconds: 3),
 
         ));

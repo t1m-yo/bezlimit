@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
                   left: -120,
                   top: -50,
                     child: Transform.rotate(
-                      angle: homeController.rotate,
+                      angle: homeController.rotate!,
                       child: SvgPicture.asset('assets/circle.svg', width: 300,),
                     )
                 ),
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                                     itemScrollController: homeController.itemScrollController,
                                     itemPositionsListener: homeController.itemPositionListener,
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: homeController.itemsCount,
+                                    itemCount: homeController.itemsCount!,
                                     itemBuilder: (context,index){
                                       return Padding(
                                         padding: const EdgeInsets.only(right: 10),

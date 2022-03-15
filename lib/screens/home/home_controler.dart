@@ -8,14 +8,16 @@ class HomeController extends GetxController {
   dynamic result;
   Set? coloringElementIndexes;
   int? currentIndex;
-  int itemsCount = 10;
-  double rotate = 0.0;
+  int? itemsCount;
+  double? rotate;
   ScrollController? scrollController;
   ItemPositionsListener? itemPositionListener;
   ItemScrollController? itemScrollController;
 
   @override
   void onInit() {
+    itemsCount = 10;
+    rotate = 0.0;
     coloringElementIndexes = {};
     currentIndex = result ?? 0;
     scrollController = ScrollController();
